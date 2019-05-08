@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejemplo Bootstrap</title>
+        <meta charset="utf=8">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+   <script>
+
+  function isNumeric(n) {
+      return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+function sololetras(array){
+
+for (var i = 0; i < array.length; i++) {
+  if (isNumeric(array[i])== true) {
+    return false;
+  }
+ }
+}
+  function formulario(){
+
+  var error = 0;
+  var nombre = document.getElementById('nombre');
+  var nombrediv = document.getElementById('nombrediv');
+  var icono = document.getElementById("icono");
+  nombrediv.classList.remove("has-error");
+  if (nombre.value == "") {
+    nombrediv.classList.add("has-error");
+    nombrediv.classList.add("has-feedback");
+    nombre.div  
+    error = 1;
+  }else {
+    nombrediv.classList.add("has-success")
+  }
+  if (sololetras(nombre.value) == false) {
+    nombrediv.classList.add("has-error");
+    error = 1;
+
+  }
+ 
+   var pass1 = document.getElementById('pass');   
+    var pass2 = document.getElementById('pass2');   
+    var divpass1 = document.getElementById('divpass1');   
+    var divpass2 = document.getElementById('divpass2');  
+    
+    divpass1.classList.remove("has-error");
+    divpass2.classList.remove("has-error");
+    if ( pass1.value == pass2.value ){
+        divpass1.classList.add("has-success");
+        divpass2.classList.add("has-success");
+    }else{
+        divpass1.classList.add("has-error");
+        divpass2.classList.add("has-error");  
+        divpass1.classList.add("has-feedback");
+        divpass2.classList.add("has-feedback");
+        error = 1;
+    }  
+      
+      
+  if (error == 1) {
+    return false;
+  }
+  var areadiv = document.getElementById("areadiv");    
+  var comentario = document.getElementById("coment");
+      if ( comentario.value == "" ){
+        areadiv.classList.add("has-error");
+        areadiv.classList.add("has-feedback"); 
+    error = 1;
+      }else {
+    nombrediv.classList.add("has-success")
+  }
+}
+
+
+  </script>
+    
+        
+        
+        
+    </head>
+	
+<body  style="background-image: url(img/fondo.jpg) ; background-size: cover ; padding-bottom: 70px">
+<div class="container">     
+
+<nav class="navbar navbar-inverse">
+        <ul class="nav nav-pills nav-justified">
+                  <li class="dropdown "><a class="dropdown-toogle" data-toggle="dropdown" href="#">Inicio <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                                <li><a href="indice.html">Inicio</a></li>
+                                <li><a href="noticias.html">Noticias <span class="badge"> 4</span></a></li>
+                                <li class="divider"></li>
+                                    <li><a href="#">Refrescar página #</a></li>
+                          </ul>
+                  </li>   
+            
+                  <li class="dropdown"><a class="dropdown-toogle" data-toggle="dropdown" href="#">Películas <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="cartelera.html">Cartelera</a></li>
+                                <li><a href="estrenos.html">Proximos estrenos <span class="badge"> 4</span></a></li>
+                            </ul>
+                  </li>
+            
+                  <li class="dropdown active"><a class="dropdown-toogle" data-toggle="dropdown" href="#">Contacto <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="contacto.html">Formulario de Contacto</a></li>
+                                <li><a href="#">Formulario de Registro</a></li>
+                            </ul>
+                  </li>     
+            
+        </ul>
+
+
+</nav>
+
+<ol class="breadcrumb">
+    <li><a> Sección Contacto </a></li>
+    <li class="breadcrumb-item active"><a href="#"> Formulario de Registro </a></li>
+</ol>    
+    
+<div class="container jumbotron col-lg-9">
+  <h2 class="text-primary" style="text-align: center"><strong>Formulario de Registro</strong></h2>
+  <br>
+    
+  <form class="form-Horizontal" onsubmit="return formulario()">
+   
+<div class="form-group" id="nombrediv">
+        <label class="col-lg-2 control-label"> Nombre de Usuario </label>
+            <div class="col-lg-8 input-group"> 
+                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input class="form-control" type="text" placeholder="Solo letras" id="nombre">
+                   
+
+            </div>
+</div>
+
+      
+<div class="form-group" id="emaildiv">
+    <label class="col-lg-2 control-label">Email</label>
+    <div class="col-lg-8 input-group">
+         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+      <input  class="form-control" type="email" id="email"
+             placeholder="Email">
+    </div>
+</div>
+      
+<div class="form-group" id="divpass1">
+    <label class="col-lg-2 control-label">Contraseña</label>
+    <div class="col-lg-8 input-group">
+         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      <input type="password" class="form-control" id="pass" 
+             placeholder="Contraseña">
+    </div>
+</div>
+      
+<div class="form-group" id="divpass2">
+    <label class="col-lg-2 control-label">Repita Contraseña</label>
+    <div class="col-lg-8 input-group">
+         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      <input type="password" class="form-control" id="pass2" 
+             placeholder="Repita contraseña">
+    </div>
+</div>   
+      
+      
+<div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10 input-group">
+         <span class="input-group-addon"><i class="glyphicon glyphicon-hand-right"></i></span>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> No cerrar sesión
+        </label>
+      </div>
+    </div>
+</div>
+      
+      
+<div class="form-group">
+    <div class="col-lg-offset-4 col-lg-10">
+        <button style="display: block" type="submit" class="btn btn-success col-sm-offset-2" >Enviar</button>   
+    </div>
+</div>
+      
+</form>
+    </div>   
+    
+
+<div class="container" style="margin-left: 105px">   
+<div class="col-lg-3 col-sm-12">     
+            <div class="panel panel-primary">
+                  <div class="panel-heading">
+                        <h3 style="text-align: center" class="panel-title"><strong>Preste atención</strong> <span class="label label-danger"><strong>Aviso</strong></span></h3>
+                        
+                  </div>
+                  <div class="panel-body">
+                    <p>Tenga en cuenta las siguientes <strong>instrucciones</strong> a la hora de usar nuestro formulario de contacto:</p>
+                    <p class="text-warning">El campos Nombre de usuario solo acepta letras.</p> 
+                    <p class="text-warning">El campo Email debe contener necesariamente el caracter @</p> 
+                      <p class="text-warning">Ningún campo puede estar vacío</p> 
+                      <p class="text-warning">Los dos campos contraseña deberán coincidir</p> 
+                      <br> 
+                      <p>Se mostrarán colores para saber si los campos son válidos o erróneos</p> 
+                  </div>
+            </div>  
+</div>    
+    
+    </div>
+    </div>
+     </body>
+</html>

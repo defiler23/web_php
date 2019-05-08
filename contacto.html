@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejemplo Bootstrap</title>
+        <meta charset="utf=8">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+   <script>
+
+  function isNumeric(n) {
+      return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+function sololetras(array){
+
+for (var i = 0; i < array.length; i++) {
+  if (isNumeric(array[i])== true) {
+    return false;
+  }
+ }
+}
+  function formulario(){
+
+  var error = 0;
+  var nombre = document.getElementById('nombre');
+  var nombrediv = document.getElementById('nombrediv');
+  var icono = document.getElementById("icono");
+  nombrediv.classList.remove("has-error");
+  if (nombre.value == "") {
+    nombrediv.classList.add("has-error");
+    nombrediv.classList.add("has-feedback");
+    nombre.div  
+    error = 1;
+  }else {
+    nombrediv.classList.add("has-success")
+  }
+  if (sololetras(nombre.value) == false) {
+    nombrediv.classList.add("has-error");
+    error = 1;
+
+  }
+  var Apellido = document.getElementById('Apellido');
+  var apellidodiv = document.getElementById('apellidodiv');
+  apellidodiv.classList.remove("has-error");
+  if (Apellido.value == "") {
+    apellidodiv.classList.add("has-error");
+    error = 1;
+  }else {
+    apellidodiv.classList.add("has-success")
+  }
+  if (sololetras(Apellido.value) == false) {
+    apellidodiv.classList.add("has-error");
+    error = 1;
+  }
+
+  var ap = document.getElementById('ap');
+  var apdiv = document.getElementById('apdiv');
+  apdiv.classList.remove("has-error");
+  if (ap.value == "") {
+    apdiv.classList.add("has-error");
+  }else {
+    apdiv.classList.add("has-success")
+  }
+  if (sololetras(ap.value) == false) {
+    apdiv.classList.add("has-error");
+    error = 1;
+  }
+  var edad = document.getElementById('edad');
+  var edaddiv = document.getElementById('edaddiv');
+  edaddiv.classList.remove("has-error");
+  if (edad.value == "" || edad.value < 18 || edad.value > 100) {
+    edaddiv.classList.add("has-error");
+    error = 1;
+  }else {
+    edaddiv.classList.add("has-success")
+  }
+  
+      var coment = document.getElementById("coment");
+      var largo = coment.value.length;
+      var areadiv = document.getElementById("areadiv");
+      areadiv.classList.remove("has-error");
+      
+      if ( coment.value == "" || largo < 20 ){
+            areadiv.classList.add("has-error"); 
+          error = 1;
+      }else{
+          apdiv.classList.add("has-success");
+      }
+      
+      
+  if (edad.value < 18) {
+    edaddiv.classList.add("has-error");
+    error = 1;
+  }
+  if (edad.value > 110) {
+    edaddiv.classList.add("has-error");
+    error = 1;
+  }
+  if (isNumeric(edad.value)== false) {
+    edaddiv.classList.add("has-error");
+    error = 1;
+  }
+  if (error == 1) {
+    return false;
+  }
+  var areadiv = document.getElementById("areadiv");    
+  var comentario = document.getElementById("coment");
+      if ( comentario.value == "" ){
+        areadiv.classList.add("has-error");
+        areadiv.classList.add("has-feedback"); 
+    error = 1;
+      }else {
+    nombrediv.classList.add("has-success")
+  }
+}
+
+
+  </script>
+    
+        
+        
+        
+    </head>
+	
+<body  style="background-image: url(img/fondo.jpg) ; background-size: cover ; padding-bottom: 70px">
+<div class="container">     
+
+<nav class="navbar navbar-inverse">
+        <ul class="nav nav-pills nav-justified">
+                  <li class="dropdown "><a class="dropdown-toogle" data-toggle="dropdown" href="#">Inicio <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                                <li><a href="indice.html">Inicio</a></li>
+                                <li><a href="noticias.html">Noticias <span class="badge"> 4</span></a></li>
+                                <li class="divider"></li>
+                                    <li><a href="#">Refrescar página #</a></li>
+                          </ul>
+                  </li>   
+            
+                  <li class="dropdown"><a class="dropdown-toogle" data-toggle="dropdown" href="#">Películas <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="cartelera.html">Cartelera</a></li>
+                                <li><a href="estrenos.html">Proximos estrenos <span class="badge"> 4</span></a></li>
+                            </ul>
+                  </li>
+            
+                  <li class="dropdown active"><a class="dropdown-toogle" data-toggle="dropdown" href="#">Contacto <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Formulario de Contacto</a></li>
+                                <li><a href="contacto2.html">Formulario de Registro</a></li>
+                            </ul>
+                  </li>     
+            
+        </ul>
+
+
+</nav>
+
+    
+<ol class="breadcrumb">
+    <li><a> Sección Contacto </a></li>
+    <li class="breadcrumb-item active"><a href="#"> Formulario de Contacto </a></li>
+</ol>      
+    
+<div class="container jumbotron">
+  <h2 class="text-primary" style="text-align: center"><strong>Formulario de contacto</strong></h2>
+  <br>
+  <form class="form-Horizontal" onsubmit="return formulario()">
+      
+<div class="form-group col-lg-6" id="nombrediv">
+        <label class="col-sm-2 control-label"> Nombre </label>
+            <div class="col-sm-10 input-group"> 
+                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input class="form-control" type="text" placeholder="Solo letras" id="nombre">
+                   
+
+            </div>
+</div>
+      
+      
+<div class="form-group col-lg-6" id="apellidodiv">
+        <label class="col-sm-2 control-label"> Primer apellido</label>
+            <div class="col-sm-10 input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                  <input class="form-control" type="text" placeholder="Solo letras" id="Apellido">
+            </div>
+</div>
+
+      
+<div class="form-group col-lg-6" id="apdiv">
+        <label class="col-sm-2 control-label"> Segundo apellido </label>
+            <div class="col-sm-10 input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input class="form-control" type="text" placeholder="Solo letras" id="ap">
+            </div>
+</div>
+      
+<div class="form-group col-lg-6" id="edaddiv">
+        <label class="col-sm-2 control-label"> Edad </label>
+            <div class="col-sm-10 input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input class="form-control" type="text" placeholder="Solo números" id="edad">
+            </div>
+</div>
+   
+
+     
+<div class="form-group col-lg-7" id="areadiv"><br> 
+      <label for="comment">Escriba su comentario:</label>
+             <div class="col-sm-10 input-group">
+                 <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+      <textarea class="form-control" rows="5" id="coment"></textarea>
+            </div>
+</div>  
+     
+   
+<div class="container input-group col-lg-4"><br><br><br><br><p>Cuanto interes tiene el el cine (de mayor a menor):</p>
+<br><br><br><br> <span class="input-group-addon"><i class="glyphicon glyphicon-hand-down">
+<div class="checkbox">
+  <label><input type="checkbox" value="">Opcion 1</label>
+</div>
+<div class="checkbox">
+  <label><input type="checkbox" value="">Opcion 2</label>
+</div>
+<div class="checkbox">
+  <label><input type="checkbox" value="">Opcion 3</label>
+</div> </i></span>  
+</div>        
+      
+<div class="form-group">
+    <div class="col-lg-offset-4 col-lg-10">
+        <button style="display: block" type="submit" class="btn btn-success col-sm-offset-2" >Enviar</button>   
+    </div>
+</div> 
+      
+</form>
+</div>
+
+<div class="container" style="margin-left: 105px">   
+<div class="col-lg-9 col-sm-12">     
+            <div class="panel panel-primary">
+                  <div class="panel-heading">
+                        <h3 style="text-align: center" class="panel-title"><strong>Preste atención</strong> <span class="label label-danger"><strong>Aviso</strong></span></h3>
+                        
+                  </div>
+                  <div class="panel-body">
+                    <p>Tenga en cuenta las siguientes <strong>instrucciones</strong> a la hora de usar nuestro formulario de contacto:</p>
+                    <p class="text-warning">Los campos Nombre y apellidos solo aceptan letras.</p> 
+                    <p class="text-warning">El campo Edad debe ser necesariamente númerico. Un valor mayor o igual que 18 y menos o igual que 100</p> 
+                      <p class="text-warning">Ningún campo a excepción del checkbox puede estar vacío</p> 
+                      <p class="text-warning">El campo textarea deberá contener almenos 20 caracteres</p> 
+                      <br> 
+                      <p>Se mostrarán colores para saber si los campos son válidos o erróneos</p> 
+                  </div>
+            </div>  
+</div>
+    
+    
+    </div>
+
+    </div>
+     </body>
+</html>
